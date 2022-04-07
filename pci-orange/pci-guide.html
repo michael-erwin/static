@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Reservation Information</title>
+</head>
+
+<body>
+  <div>
+    <table width="100%" cellpadding="0" cellspacing="0">
+      <tr>
+        <td valign="top" align="left" background="">
+          <table style="background-color: white;padding: 10px;" cellpadding="0" cellspacing="0" align="center" width="92%" class="deviceWidth">
+            <tr>
+              <td style="padding-top:20px">
+                <table align="center" width="100%" class="deviceWidth">
+                  <tr>
+                    <td align="center">
+                      メールが表示できない場合は<webversion style="color: #00318a;">こちら</webversion>
+                    </td>
+                  </tr>
+                </table>
+                <table align="center" width="100%" class="deviceWidth">
+                  <tr>
+                    <td align="center">
+                      <p style="margin:0;">Is this email not displaying correctly?
+                        <span style="color: #00318a;">
+                          <webversion> View it in your browser</webversion>.
+                        </span>
+                      </p>
+                    </td>
+                  </tr>
+                </table>
+                <table align="center" width="100%" class="deviceWidth" style="padding-top:20px; padding-bottom:20px;">
+                  <tr>
+                    <td align="left" style="color: #2d2d2d;">
+                      <b>Dear {{ visitor_name }} 様</b>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td align="left">
+                      ご予約ありがとうございました。事前チェックインでフロント待ち時間を短縮できます。
+                    </td>
+                  </tr>
+                  <tr>
+                    <td align="left">
+                      Thank you very much. Click and skip the line by Pre Check in.
+                    </td>
+                  </tr>
+                </table>
+
+                <table align="center" width="92%" class="deviceWidth cta-block theme-orange">
+                  <tbody class="mid-content">
+                    <tr>
+                      <td align="center">
+                        <b>{{ facility_name }}</b>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td align="center" class="reservation">
+                        予約番号 / Reservation # <span style="color: red">{{ reservation_no }}</span>
+                      </td>
+                    </tr>
+                    <tr>
+                    <tr>
+                      <td align="center">
+                        <a href="{{ url }}" class="_custom-btn">
+                          <img src="cta-button.png" />
+                        </a>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td align="center">
+                        <p style="font-size: 11px;">
+                          （注）チェックインフォームに入力する予約番号です。この番号とEmailは保管してください。</p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td align="center">
+                        <p style="font-size: 11px;">Note: This is your reservation # to check
+                          in. Please Keep
+                          this Number and Email</p>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+          </table>
+
+          <table align="center" width="92%" class="deviceWidth" style="padding-top: 20px;">
+            <!-- {% for item in reservation_details %} -->
+            <tr>
+              <td align="center">
+                {{ item.key }} : {{ item.value }}
+              </td>
+            </tr>
+            <!-- {% endfor %} -->
+          </table>
+          <table align="center" width="92%" class="deviceWidth" style="padding-top:20px">
+            <tr>
+              <td align="left">
+                --
+              </td>
+            </tr>
+            <tr>
+              <td align="left">
+                {{ pre_checkin_message }}
+              </td>
+            </tr>
+            <tr>
+              <td align="left">
+                --
+              </td>
+            </tr>
+
+          </table>
+          <table align="center" width="92%" class="deviceWidth" style="padding-top:20px">
+            <tr>
+              <td align="center">
+                *このメールは送信専用のメールアドレスです。こちらにご返信いただいてもご連絡ができませんのでご了承ください。
+              </td>
+            </tr>
+            <tr>
+              <td align="center">
+                *Please do not reply to this message. This email was sent from a notification-only email
+                address that
+                cannot accept incoming email.
+              </td>
+            </tr>
+            <tr>
+              <td align="center">
+                <unsubscribe style=" color: #000">Unsubscribe instantly</unsubscribe>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </div>
+
+
+</body>
+
+<style>
+  .cta-block {
+    padding: 10px 0;
+  }
+  .cta-block td {
+    padding: 5px;
+  }
+  .theme-orange {
+    background-color: #fdf0d8;
+    border: 2px dashed #fd7625;
+  }
+  .theme-green {
+    background-color: #f3ffe3;
+    border: 2px dashed #578a15;
+  }
+  .theme-blue {
+    background-color: #ecf1ff;
+    border: 2px dashed #224abe;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  p {
+    padding: 0;
+    margin: 0;
+  }
+
+  td {
+    color: #000;
+  }
+
+  @media (max-width: 2560px) {
+    .img-btn2 {
+      display: none;
+    }
+  }
+
+  @media (max-width: 768px) {
+    img.img-btn {
+      width: 80%;
+    }
+
+  }
+
+  @media (max-width: 600px) {
+    tbody.mid-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .img-btn2 {
+      display: block;
+    }
+
+    .img-btn {
+      display: none;
+    }
+
+  }
+
+  @media (max-width: 375px) {
+    .reservation {
+      font-size: 15px;
+    }
+
+  }
+
+  @media (max-width: 340px) {
+    table.deviceWidth {
+      width: 98%;
+    }
+  }
+
+  @media (max-width: 320px) {
+    .reservation {
+      font-size: 12px;
+    }
+
+    td {
+      font-size: 14px;
+    }
+  }
+</style>
+</html>​
